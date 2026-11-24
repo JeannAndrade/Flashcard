@@ -25,6 +25,7 @@ Nova implementação de `ITokenStore` no pacote **`Lumia.Foundation.AspNetCore.W
 - Mudança aditiva no contrato público da Foundation: sinalizar o impacto (nenhum para o Vault, que mantém o `SessionTokenStore`) e **atualizar o guia de uso**.
 - Cache em memória: reiniciar o contêiner desloga os usuários (hoje equivalente à sessão em memória); escalar para várias instâncias exigirá cache distribuído.
 - O primeiro trabalho técnico do Flashcard é um **spike de autenticação em circuito**, com testes (refresh concorrente, expiração, logout e isolamento por `sid`) antes de qualquer tela.
+- O `ApiUnauthorizedExceptionHandler` (Foundation, pacote `AspNetCore.Web`) trata o 401 nas requisições de SSR: resolve o `IApiSignInService`, chama `SignOutAsync` e redireciona ao Login. Ele não acessa `ISession` diretamente, mas depende da infraestrutura registrada pelo host. O spike deve provar que o `SignOutAsync` limpa o **novo store por `sid`** (e não só a sessão) e que o redirecionamento funciona com o cookie do Flashcard. Nas ilhas, o handler não é alcançado (ver ADR 0018).
 
 ## Alternativas consideradas
 

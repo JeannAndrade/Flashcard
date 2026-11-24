@@ -27,6 +27,8 @@ Dependências (sempre apontando para dentro):
 - `Service` → `Application`, `Persistence` e pacotes da Foundation
 - `Presentation` → somente pacotes da Foundation (nenhuma referência a Domain, Application ou Persistence)
 
+**Nota de esclarecimento (2026-11-21, ADR 0015):** a restrição "somente pacotes da Foundation" para a `Presentation` trata de **projetos internos**. Pacotes de terceiros são permitidos nela quando aprovados em ADR (hoje: Markdig e HtmlSanitizer).
+
 Projetos de teste usam o sufixo `.Test` (por exemplo, `Application.Test`, `Persistence.Test`, `Service.Test`) e xUnit.
 
 Registrado no README de cada projeto: `Presentation` é o host do front e `Service` é o host da API, para evitar a leitura de "Service" como serviço de negócio.

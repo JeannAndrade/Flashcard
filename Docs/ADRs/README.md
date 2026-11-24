@@ -16,9 +16,16 @@ Registro das decisões do projeto Flashcard. Formato e regras no [ADR 0001](0001
 | [0010](0010-application-com-commands-e-queries.md) | Application com Commands e Queries | Aceita |
 | [0011](0011-linguagem-do-dominio-e-idioma.md) | Linguagem do domínio e idioma | Aceita |
 | [0012](0012-portas-de-repositorio-na-application.md) | Portas de repositório na Application | Aceita |
-| [0013](0013-cadastro-aberto-e-limite-de-taxa.md) | Cadastro aberto e limite de taxa | Aceita / Proposta (limite de taxa) |
+| [0013](0013-cadastro-aberto-e-limite-de-taxa.md) | Cadastro aberto e limite de taxa | Aceita |
 | [0014](0014-autenticacao-nas-ilhas-interativas.md) | Autenticação nas ilhas interativas | Aceita |
+| [0015](0015-renderizacao-e-sanitizacao-de-markdown.md) | Renderização e sanitização de Markdown | Aceita |
+| [0016](0016-armazenamento-validacao-e-entrega-de-imagens.md) | Armazenamento, validação e entrega de imagens | Aceita |
+| [0017](0017-modelo-de-dados.md) | Modelo de dados | Aceita |
+| [0018](0018-padrao-de-erros-e-validacao.md) | Padrão de erros e validação | Aceita |
+
+| [0019](0019-estrategia-de-testes.md) | Estratégia de testes | Aceita |
+| [0020](0020-observabilidade.md) | Observabilidade | Aceita (itens a confirmar na implementação) |
 
 ## Previstos (rodada seguinte)
 
-Renderização e sanitização de Markdown; armazenamento e entrega de imagens; estratégia de testes (xUnit, PostgreSQL real em contêiner, testes de contrato e de arquitetura); padrão de erros e validação; modelagem das entidades (`Entity`/`Guid` e `trackChanges`); limite de taxa; observabilidade (NLog e health checks).
+Segurança de borda (CSP, cabeçalhos, TLS); ordem de implementação (esqueleto, spikes e primeiro caso de uso).
