@@ -58,7 +58,7 @@ Cada item vem do ADR indicado e **bloqueia a entrega** da funcionalidade corresp
 | ADR 0017 | FK composta recusa vínculo entre donos; imagem pendente; cascatas e `Restrict`; CHECKs e unicidade; `timestamptz` em UTC; filho novo em agregado rastreado insere; contagem por pasta; toda entidade carrega `OwnerId` |
 | ADR 0018 | Validação por tabela de casos com mensagens em português; tradução de erros do banco (e violação desconhecida relançada); mapeamento exceção → status; 500 sem detalhes internos; tradução de `ApiException` (inclusive corpo não reconhecível) |
 | ADR 0013 | 429 com `ErrorDetails` e `Retry-After`; cota por dono independente; limite de cadastro, de login e de refresh por IP; interruptor de cadastro; ordem do pipeline; configuração inválida falha na inicialização |
-| ADR 0020 | `TraceId` igual na tela de erro e no log da API (inclusive numa ação de ilha); log sem token, senha e texto de cartão; `nlog.config` válido e sem `Debug` em produção; liveness e readiness (503 com o banco fora); health checks isentos do limite; Presentation responde só o estado |
+| ADR 0020 | `TraceId` igual na tela de erro e no log da API (inclusive numa ação de ilha); log sem token, senha e texto de cartão; `nlog.config` válido e sem `Debug` em produção; liveness e readiness (503 com o banco fora); health checks isentos do limite; Presentation responde só o estado; integração do logging (falha enquanto o `AddNLog()` não estiver configurado) |
 
 ## Como rodar
 
