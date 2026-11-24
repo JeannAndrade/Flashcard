@@ -27,7 +27,7 @@ Fatos que pesaram:
    - Excluir o `Cartao` remove as suas imagens.
    - A limpeza é **oportunista**, sem serviço em background: a cada upload, removem-se as imagens pendentes do mesmo usuário com mais de 24 h.
 7. **Entrega:** navegador → `Presentation` (endpoint de imagens, autenticado por cookie) → API (endpoint de imagem, JWT e filtro por `ownerId`) → banco.
-   - A resposta leva o tipo gravado, `X-Content-Type-Options: nosniff`, `Cache-Control: private` (validade definida na implementação), ETag pelo hash do conteúdo (permite 304) e, nas respostas de imagem, uma CSP restritiva (`default-src 'none'; sandbox`) para o caso de abertura direta.
+   - A resposta leva o tipo gravado, `X-Content-Type-Options: nosniff`, `Cache-Control: private` (validade definida na implementação), ETag pelo hash do conteúdo (permite 304) e, nas respostas de imagem, uma CSP restritiva (`default-src 'none'; sandbox`) **só nessas respostas**, para o caso de abertura direta (não há CSP de site, ADR 0021).
    - ID inexistente ou de outro dono recebe a mesma resposta: 404.
    - A `Presentation` repassa a resposta em *stream*. O cliente tipado da Foundation é pensado para JSON, então pode ser necessário um método aditivo para leitura binária, a validar no spike e a documentar no guia.
    - O padrão exato do endpoint da `Presentation` é definido na implementação e usado na política do sanitizador (ADR 0015, item 5).

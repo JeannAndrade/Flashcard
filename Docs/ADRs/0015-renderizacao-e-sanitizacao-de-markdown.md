@@ -39,7 +39,7 @@ Fatos que pesaram na decisão:
    - `MarkupString` só aparece em um componente `MarkdownView`, com teste que varre os fontes da Presentation e falha se ele surgir em outro arquivo.
    - O preview do editor é renderizado no servidor pelo mesmo `IMarkdownRenderer`, com *debounce*.
    - Sem cache do HTML por ora.
-   - A CSP é uma terceira camada, tratada em ADR de segurança de borda, pois o Blazor Server tem exigências próprias.
+   - Não há CSP de site (ADR 0021, premissa de implantação): a sanitização e o corpus de XSS são as defesas. A CSP restritiva existe só na resposta de imagem (ADR 0016).
 
 **Esclarecimento sobre o ADR 0002:** a restrição "Presentation → somente pacotes da Foundation" trata de **projetos internos**. Pacotes de terceiros são permitidos na Presentation quando aprovados em ADR (hoje: Markdig e HtmlSanitizer).
 
@@ -52,7 +52,7 @@ Fatos que pesaram na decisão:
 - Subir o limite acima de 5000 exige mudar o código e criar uma migration.
 - O custo de processar o preview a cada tecla é mitigado pelo *debounce*, e o limite de tamanho protege contra entradas enormes.
 - A Presentation conhece o limite configurável por um **endpoint da API** (fonte única, usado pelo contador de caracteres do editor), conforme decidido em 2026-11-22.
-- O armazenamento e a entrega das imagens estão no [ADR 0016](0016-armazenamento-validacao-e-entrega-de-imagens.md). Fica em aberto a CSP.
+- O armazenamento e a entrega das imagens estão no [ADR 0016](0016-armazenamento-validacao-e-entrega-de-imagens.md). Não há CSP de site (ADR 0021).
 - O primeiro trabalho técnico é um **spike de renderização**, junto do spike de autenticação em circuito (ADR 0014).
 
 ## Como será testado

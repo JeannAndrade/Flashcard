@@ -59,6 +59,7 @@ Cada item vem do ADR indicado e **bloqueia a entrega** da funcionalidade corresp
 | ADR 0018 | Validação por tabela de casos com mensagens em português; tradução de erros do banco (e violação desconhecida relançada); mapeamento exceção → status; 500 sem detalhes internos; tradução de `ApiException` (inclusive corpo não reconhecível) |
 | ADR 0013 | 429 com `ErrorDetails` e `Retry-After`; cota por dono independente; limite de cadastro, de login e de refresh por IP; interruptor de cadastro; ordem do pipeline; configuração inválida falha na inicialização |
 | ADR 0020 | `TraceId` igual na tela de erro e no log da API (inclusive numa ação de ilha); log sem token, senha e texto de cartão; `nlog.config` válido e sem `Debug` em produção; liveness e readiness (503 com o banco fora); health checks isentos do limite; Presentation responde só o estado; integração do logging (falha enquanto o `AddNLog()` não estiver configurado) |
+| ADR 0021 | Requisição HTTP recebe 200, sem redirecionamento nem `Strict-Transport-Security`; cookies com `HttpOnly`, `SameSite=Lax` e `Secure` conforme a requisição; nenhuma resposta do site leva CSP, exceto a de imagem |
 
 ## Como rodar
 
@@ -71,7 +72,7 @@ Cada item vem do ADR indicado e **bloqueia a entrega** da funcionalidade corresp
 - Sem Moq, o `FakeRepositoryManager` é código a manter, e pode divergir do banco real. Por isso o que depende do banco roda em integração.
 - Três dependências novas, só de teste. O bUnit usa o AngleSharp, o mesmo do sanitizador do ADR 0015, e as versões devem ser alinhadas na criação do esqueleto.
 - Sem integração contínua, a lista de testes obrigatórios só vale se for executada antes de cada entrega. Se o projeto crescer ou ganhar mais colaboradores, a CI entra em novo ADR, e o Testcontainers funciona nos executores do GitHub.
-- O bUnit não cobre circuito, cookie nem CSP reais. Isso fica com os spikes e com testes de integração.
+- O bUnit não cobre circuito nem cookie reais. Isso fica com os spikes e com testes de integração.
 
 ## Alternativas consideradas
 

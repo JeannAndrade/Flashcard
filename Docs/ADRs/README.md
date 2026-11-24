@@ -25,7 +25,5 @@ Registro das decisões do projeto Flashcard. Formato e regras no [ADR 0001](0001
 
 | [0019](0019-estrategia-de-testes.md) | Estratégia de testes | Aceita |
 | [0020](0020-observabilidade.md) | Observabilidade | Aceita (itens a confirmar na implementação) |
-
-## Previstos (rodada seguinte)
-
-Segurança de borda (CSP, cabeçalhos, TLS); ordem de implementação (esqueleto, spikes e primeiro caso de uso).
+| [0021](0021-seguranca-de-borda-e-premissa-de-implantacao.md) | Segurança de borda e premissa de implantação | Aceita / Proposta (política dos cookies) |
+| [0022](0022-ordem-de-implementacao.md) | Ordem de implementação | Aceita |
