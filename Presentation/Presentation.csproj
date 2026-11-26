@@ -7,9 +7,4 @@
     <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Presentation.Client\Presentation.Client.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.15" />
-  </ItemGroup>
-
 </Project>

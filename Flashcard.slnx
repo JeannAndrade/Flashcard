@@ -5,7 +5,6 @@
   <Project Path="Domain/Domain.csproj" />
   <Project Path="Persistence.Test/Persistence.Test.csproj" />
   <Project Path="Persistence/Persistence.csproj" />
-  <Project Path="Presentation.Client/Presentation.Client.csproj" />
   <Project Path="Presentation.Test/Presentation.Test.csproj" />
   <Project Path="Presentation/Presentation.csproj" />
   <Project Path="Service.Test/Service.Test.csproj" />
