@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Using Include="Test.Suporte.Banco" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 

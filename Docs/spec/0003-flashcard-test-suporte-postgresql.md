@@ -1,7 +1,7 @@
 # Especificação técnica: `Test.Suporte` com PostgreSQL em contêiner (Flashcard)
 
 - Data: 2026-11-26
-- Status: aprovada para implementação (2026-11-26)
+- Status: implementada (2026-11-26)
 - ADRs relacionados: 0006, 0019 (itens 2, 3 e 8), 0022 (fase 1)
 - Repositórios afetados: **Flashcard** (`Test.Suporte`, `Persistence.Test`, `Application.Test`). A `LumiaFoundation` **não** é alterada.
 - Depende da spec 0001 (os projetos de teste e o `Test.Suporte` já existem, vazios).
@@ -20,7 +20,7 @@ Ficam para depois, de propósito: a **fábrica da API** (`WebApplicationFactory`
 ## 2. Decisões aprovadas
 
 | Item | Decisão | Origem |
-|---|---|---|
+| --- | --- | --- |
 | D1 | PostgreSQL real em contêiner com `Testcontainers.PostgreSql`; sem InMemory nem SQLite em teste de persistência | ADR 0019 |
 | D2 | Um contêiner **por execução de cada projeto de teste**, compartilhado pelos testes do projeto por uma fixture de coleção; isolamento entre testes **por `ownerId`**, não por limpeza do banco | ADR 0019 |
 | D3 | O esquema é criado pelas migrations (nas specs futuras), nunca por `EnsureCreated` | ADR 0019 |
@@ -53,7 +53,7 @@ Ficam para depois, de propósito: a **fábrica da API** (`WebApplicationFactory`
 Cada passo termina com build e testes verdes antes do seguinte.
 
 | # | Passo | Projeto |
-|---|---|---|
+| --- | --- | --- |
 | 0 | Inventário e conferência da imagem | (sem alterações) |
 | 1 | Pacote e constante da imagem | `Test.Suporte` |
 | 2 | Fixture do PostgreSQL | `Test.Suporte` |
