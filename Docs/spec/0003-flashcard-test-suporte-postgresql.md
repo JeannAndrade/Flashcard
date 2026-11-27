@@ -1,7 +1,7 @@
 # Especificação técnica: `Test.Suporte` com PostgreSQL em contêiner (Flashcard)
 
 - Data: 2026-11-26
-- Status: implementada (2026-11-26)
+- Status: aprovada para implementação (2026-11-26)
 - ADRs relacionados: 0006, 0019 (itens 2, 3 e 8), 0022 (fase 1)
 - Repositórios afetados: **Flashcard** (`Test.Suporte`, `Persistence.Test`, `Application.Test`). A `LumiaFoundation` **não** é alterada.
 - Depende da spec 0001 (os projetos de teste e o `Test.Suporte` já existem, vazios).
@@ -36,7 +36,8 @@ Ficam para depois, de propósito: a **fábrica da API** (`WebApplicationFactory`
 - O provedor `Npgsql.EntityFrameworkCore.PostgreSQL` listado no NuGet é o 10.0.3. **Eu não conferi a matriz de suporte de versões do PostgreSQL desse provedor para a 17**; as migrations e a fixture das próximas specs provam a compatibilidade na prática.
 - **Não conferi o Docker Hub:** a imagem `postgres:17` existe há muito tempo, mas o Passo 0 confirma.
 - O pacote `Testcontainers.PostgreSql` não precisa do `Npgsql` para esta spec: o teste de fumaça usa a execução de script dentro do contêiner.
-- **Não verificado por mim:** o local do tipo `IDateTimeProvider` (provável: pacote Core da Foundation) e a versão do xUnit do repositório (v2 ou v3). O Passo 0 confere.
+- O `Program.cs` do Vault (2026-11-27) mostra que o `IDateTimeProvider` e o `UtcDateTimeProvider` ficam em `LumiaFoundation.Core.TimeService` (pacote Core da Foundation).
+- **Não verificado por mim:** o nome exato do membro que devolve a data e hora atuais e a versão do xUnit do repositório (v2 ou v3). O Passo 0 confere.
 
 ## 4. Atenção antes de começar
 

@@ -35,7 +35,9 @@ Já confirmadas pelo mantenedor no código (2026-11-23):
 - `ConfigureLoggerService` registra só o `ILoggerManager`; **não** chama `AddNLog()` (logs do framework não vão ao NLog).
 - A versão publicada em uso no Flashcard é `Lumia.Foundation.Logger` 0.5.1.
 
-**Não verificado por mim** (o código do `Logger` não estava disponível): framework de destino (`TargetFramework`), versão do pacote NLog, nomes e namespaces dos tipos existentes, existência de um projeto de teste do `Logger`. Por isso o Passo 0 é um inventário.
+O `Program.cs` do Vault (2026-11-27) mostra os namespaces `LumiaFoundation.Logger.Extensions` (`ConfigureLoggerService`) e `LumiaFoundation.Logger.LoggerService` (`LoggerManager.LoadConfigurationFromFile`). Os namespaces são `LumiaFoundation.*`, mas o **id do pacote** é `Lumia.Foundation.Logger`; por isso o **nome do assembly** a usar em `<extensions>` provavelmente é `LumiaFoundation.Logger` (e não `Lumia.Foundation.Logger`). Confirmar no Passo 0.
+
+**Não verificado por mim** (o código do `Logger` não estava disponível): framework de destino (`TargetFramework`), versão do pacote NLog, nomes dos demais tipos existentes, existência de um projeto de teste do `Logger`. Por isso o Passo 0 é um inventário.
 
 ## 4. Atenção antes de começar
 
